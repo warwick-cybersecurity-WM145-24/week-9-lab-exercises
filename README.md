@@ -1,6 +1,6 @@
 # Week 9 lab exercises
 
-Pwn an website
+Pwn a website
 
 ## app server
 
@@ -13,7 +13,7 @@ to run
 (cd app && npm install)
 
 # to start the server on port 3000
-(cd app && npm start)
+(cd app && DB_PATH=../poems.sqlite npm start)
 
 # to run the HURL tests
 cd tests
@@ -22,8 +22,9 @@ cat getAPoem.hurl | hurl
 
 ## setup database
 
+If you need a clean database
 ```bash
-(cd db && npm i)
+(cd db && npm install)
 (cd db && DB_PATH=../poems.sqlite node insertPoems.js)
 ```
 
