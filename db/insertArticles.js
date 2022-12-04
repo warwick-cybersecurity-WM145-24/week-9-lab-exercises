@@ -10,6 +10,7 @@ let db = new sqlite3.Database(process.env?.DB_PATH, (err) => {
         console.log('Connected to the SQLite database.')
     }
 });
+
 db.run(`
     CREATE TABLE "pages" (
         "id"	INTEGER PRIMARY KEY AUTOINCREMENT,
