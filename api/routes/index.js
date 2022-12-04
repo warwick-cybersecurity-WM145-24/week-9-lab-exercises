@@ -23,24 +23,38 @@ router.get('/', (request, response) => {
  */
 router.get('/poem/:id', (request, response) => {
   const poemId = request.params?.id;
-  db.get(`SELECT * FROM pages WHERE id=${poemId}`, function (err, row) {
+  const sql = `SELECT * FROM pages WHERE id=${poemId}`;
+  db.get(sql, function (err, row) {
     if (err) {
       console.log(err);
       response.status(500).json({ "error": err.message });
       return;
     }
+    console.debug({ sql, row });
     response.json(row);
   });
 
-  //response.json(output);
 });
 
 /**
- * Create a new article
+ * Create a new poem
  */
-router.post('/article', (request, response) => {
-  response.statusCode = 201;
-  response.json({ status: "Thanks for the new article" });
+router.post('/poem', (request, response) => {
+  const body = request.body;
+  console.log(body);
+
+  const sql = `INSERT INTO pages VALUES ('${body.title}','${body.author}','${body.content}')`;
+
+  db.all(sql, function (err, row) {
+    if (err) {
+      console.log(err);
+      response.status(500).json({ "error": err.message });
+      return;
+    }
+    console.debug({ row });
+    response.json(row);
+  });
+
 });
 
 module.exports = router;
