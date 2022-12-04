@@ -30,18 +30,18 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
     // fetch a random article
-    const apiUrl = "http://localhost:3000/article";
-    fetch(`${apiUrl}/22`)
+    const randomId = Math.round(Math.random() * (22 - 1) + 1);
+    const apiUrl = "http://localhost:3000/poem";
+    fetch(`${apiUrl}/${randomId}`)
         .then((response) => response.json())
         .then((incoming) => {
 
             // render artcile
             console.log(incoming);
-            document.getElementById('masthead').setAttribute('style',`background-image: url('${incoming.headerImage}')`);
-            document.getElementById('title').innerHTML = incoming?.title;
-            document.getElementById('subHeading').innerHTML = incoming?.subHeading;
+            document.getElementById('masthead').setAttribute('style', `background-image: url('${incoming.headerImage}')`);
+            document.getElementById('title').innerHTML = `${randomId}: ${incoming?.title}`;
+            document.getElementById('author').innerHTML = incoming?.author;
             document.getElementById('content').innerHTML = incoming?.content;
-            document.getElementById('datePublished').innerHTML = incoming?.datePublished;
 
         })
         .catch((err) => console.error(err));
