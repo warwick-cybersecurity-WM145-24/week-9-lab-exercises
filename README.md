@@ -35,7 +35,13 @@ If you need a clean database
 ## Getting Started with SQL injection vulns
 
 
-curl http://localhost:3000/poem/2
+1. deface the website. With a (SFW) poem or content
+2. create an admin user
+3. break the website and delete all the content
 
+```bash
+
+curl -X POST http://localhost:8080/poems/ -d "title=hackhack\"); --"
+```
 
 ---
