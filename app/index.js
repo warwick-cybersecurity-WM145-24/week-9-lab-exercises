@@ -26,7 +26,7 @@ const server = http.createServer((request, response) => {
       db.get(sql, function (err, row) {
         if (err) {
           console.error(err);
-          response.statusCode(500);
+          response.statusCode = 500;
           response.end(err.message);
         }
 
