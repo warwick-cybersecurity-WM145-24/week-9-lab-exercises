@@ -45,7 +45,7 @@ If you need a clean database
 curl -X POST http://localhost:3000/poems/ -d "title=My wonderful prose"
 
 # leet hax0r, taking over
-curl -X POST http://localhost:3000/poems/ -d "title=hackhack\"); --"
+curl -X POST http://localhost:3000/poems/ -d "title=hackhack\"); <insert devious sql here> --"
 ```
 
 ---
