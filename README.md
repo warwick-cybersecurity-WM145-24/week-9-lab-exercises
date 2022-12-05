@@ -41,7 +41,11 @@ If you need a clean database
 
 ```bash
 
-curl -X POST http://localhost:8080/poems/ -d "title=hackhack\"); --"
+# legit insert of a wonderful poem
+curl -X POST http://localhost:3000/poems/ -d "title=My wonderful prose"
+
+# leet hax0r, taking over
+curl -X POST http://localhost:3000/poems/ -d "title=hackhack\"); --"
 ```
 
 ---
